@@ -1,26 +1,29 @@
 Given(/^I land on help popup$/) do
-  puts("User lands on help popup")
+  text("Help")
 end
 
 When(/^I click on Got it button$/) do
-  puts("User clics on Got it button")
+  find_element(id:"button1").click
 end
 
 Then(/^I land on Area screen$/) do
-  puts("User lands on Area screen")
+  text("Area")
 end
 
-
 When(/^I click on Swap button$/) do
-  puts("User clicks Swap button")
+  find_element(id:"fab").click
 end
 
 Then(/^I see "([^"]*)" in From header$/) do |value|
-  puts("From header values is " + value)
+  actual_value=find_element(id:"header_text_unit_from").text
+  puts("Expected value is #{value}")
+  puts("Actual value is #{actual_value}")
 end
 
 And(/^I see "([^"]*)" in To header$/) do |value|
-  puts ("To header values is #{value}")
+  actual_value=find_element(id:"header_text_unit_to").text
+  puts("Expected value is #{value}")
+  puts("Actual value is #{actual_value}")
 end
 
 And(/^I click on Clear button$/) do
